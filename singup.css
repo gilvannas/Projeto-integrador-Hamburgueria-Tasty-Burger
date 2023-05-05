@@ -15,7 +15,7 @@
 
 .hero .login_form{
     width: 400px;
-    height: 590px;
+    height: 650px;
     background-image: url(imagem/login_bg.png);
     background-position: center;
     background-size: cover;
@@ -84,11 +84,11 @@
     border: none;
     background: #dc143c;
     padding: 10px 20px;
-    width: 80%;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 30px auto 0 auto;
+    margin: -20px auto 0 auto;
     font-size: 18px;
     cursor: pointer;
 }
