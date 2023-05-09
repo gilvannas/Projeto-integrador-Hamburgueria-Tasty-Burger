@@ -8,7 +8,7 @@
 .hero{
     width: 100%;
     height: 100vh;
-    background-image: url(../imagens/bg1.jpg);
+    background-image: url(../imagem/bg1.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -16,7 +16,7 @@
 .hero .login_form{
     width: 400px;
     height: 650px;
-    background-image: url(../imagens/login_bg.png);
+    background-image: url(../imagem/login_bg.png);
     background-position: center;
     background-size: cover;
     position: absolute;
