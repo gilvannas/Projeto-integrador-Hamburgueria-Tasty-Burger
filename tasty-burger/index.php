@@ -541,8 +541,7 @@
       <p class="end">
         Desenvolvido pelo Grupo 08 da disciplina:
         <span
-          >Desenvolvimento de Sistemas Orientado a Dispositivos Móveis e
-          Baseados na Web. 2023</span
+          > Análise de soluções integradas para organizações. 2023</span
         >
       </p>
     </footer>
