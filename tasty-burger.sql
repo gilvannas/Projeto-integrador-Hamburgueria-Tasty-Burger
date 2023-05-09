@@ -18,6 +18,24 @@ USE `tasty_burger`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `tb_usuario`
+--
+
+DROP TABLE IF EXISTS `tb_usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tb_usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nm_usuario` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `ds_email` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `nu_telefone` varchar(30) COLLATE latin1_general_ci DEFAULT NULL,
+  `ds_senha` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
 -- Table structure for table `tb_cardapio`
 --
 
@@ -86,24 +104,6 @@ CREATE TABLE `tb_pedido_item` (
   CONSTRAINT `id_cardapio_tb_cardapio` FOREIGN KEY (`id_cardapio`) REFERENCES `tb_cardapio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `id_pedido_tb_pedido` FOREIGN KEY (`id_pedido`) REFERENCES `tb_pedido` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
---
--- Table structure for table `tb_usuario`
---
-
-DROP TABLE IF EXISTS `tb_usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tb_usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nm_usuario` varchar(100) COLLATE latin1_general_ci NOT NULL,
-  `ds_email` varchar(100) COLLATE latin1_general_ci NOT NULL,
-  `nu_telefone` varchar(30) COLLATE latin1_general_ci DEFAULT NULL,
-  `ds_senha` varchar(100) COLLATE latin1_general_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 
