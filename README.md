@@ -1,7 +1,5 @@
 # Projeto-integrador-Hamburgueria-Tasty-Burger
 
-<h1> Projeto de site - Hamburgueria Tasty Burger</h1>
-</br>
 <h2>Projeto desenvolvido pelo grupo 8</h2>
 </br>
 <h3>Curso: Análise de soluções integradas para organizações </h3>
