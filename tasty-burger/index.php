@@ -1,11 +1,25 @@
+<?php
+//verifica se o usuário está autenticado
+    session_start();
+    if(!isset($_SESSION["id_usuario"])){
+        header("location: login.php");
+        exit;
+    }
+    require_once "Classes/usuarios.php";
+    $u = new Usuario;
+    require_once "Classes/pedidos.php";
+    $p = new Pedido;
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hamburgueria Tasty Burger</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -22,16 +36,18 @@
         </div>
 
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="#sobre">Sobre Nós</a></li>
           <li><a href="#cardapio">Cardápio</a></li>
           <li><a href="#galeria">Galeria</a></li>
           <li><a href="#avaliacoes">Avaliações</a></li>
-          <li><a href="#pedido">Pedido</a></li>
+          <!-- <li><a href="#pedido">Pedido</a></li> -->
+          <li><a href="meus_pedidos.php">Meus Pedidos</a></li>
         </ul>
 
         <div class="login">
-          <a href="login.html">Entrar</a>
+          Olá <?php echo $_SESSION["nome"]?> seja bem vindo
+          <a class="btn btn-primary btn-lg" href="sair.php" role="button">Sair</a>
         </div>
       </nav>
 
@@ -125,270 +141,38 @@
       <h1 id="cardapio">Nosso <span>Cardápio</span></h1>
 
       <div class="menu_box">
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/01.png" />
-          </div>
+        <?php 
+        include "conexao.php";
+        $sql = "SELECT id, nm_item, ds_item, vl_item, ds_imagem FROM tb_cardapio";
+        $dadosCardapio = mysqli_query($conn, $sql);
+        
+        while($linha = mysqli_fetch_assoc($dadosCardapio)){
+          echo '<div class="menu_card">';
+          echo '  <div class="menu_image">';
+          echo '    <img src="'.$linha['ds_imagem'].'" />';
+          echo '  </div>';
+          echo '  <div class="menu_info">';
+          echo '    <h2>'.$linha['nm_item'].'</h2>';
+          echo '    <p>'.$linha['ds_item'].'</p>';
+          echo '    <h3>R$'.$linha['vl_item'].'</h3>';
+          echo '    <div class="menu_icon">';
+          echo '      <i class="fa-solid fa-star"></i>';
+          echo '      <i class="fa-solid fa-star"></i>';
+          echo '      <i class="fa-solid fa-star"></i>';
+          echo '      <i class="fa-solid fa-star"></i>';
+          echo '      <i class="fa-solid fa-star-half-stroke"></i>';
+          echo '    </div>';
+          echo '<form id="cardapio_'.$linha['id'].'"  method="POST" class="input_box">';
 
-          <div class="menu_info">
-            <h2>Clássico</h2>
-            <p>
-              Pão, carne bovina, alface crocante, tomate, cebola roxa, picles e
-              molho especial da casa.
-            </p>
-            <h3>R$22.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEDIR AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/10.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Quarteirão</h2>
-            <p>
-              Pão, carne de bovina grelhada, queijo cheddar derretido, alface
-              crocante, tomate, cebola roxa, picles e molho de mostarda.
-            </p>
-            <h3>R$24.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/11.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Picanha</h2>
-            <p>
-              Pão, picanha grelhada, queijo gorgonzola derretido, ovo, alface,
-              tomate, cebola roxa, picles e molho especial da casa.
-            </p>
-            <h3>R$28.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/12.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Cordeiro</h2>
-            <p>
-              Pão, carne de cordeiro grelhada, queijo Gouda, rúcula, cebola
-              crispy, picles e molho de hortelã.
-            </p>
-            <h3>R$32.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/05.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Vegano</h2>
-            <p>
-              Pão, proteina de soja, bancon vegano, queijo vegano, alface,
-              tomate, picles e molho especial de mostarda.
-            </p>
-            <h3>R$29.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/14.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Frango crispy</h2>
-            <p>
-              Pão, peito de frango empanado, queijo cheddar derretido, alface,
-              tomate, picles e molho especial de mostarda.
-            </p>
-            <h3>R$33.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/16.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Apimentado</h2>
-            <p>
-              Pão, peito de frango empanaddo, queijo Gouda derretido, alface e
-              geléia de pimenta Dedo-de-Moça.
-            </p>
-            <h3>R$34.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/14.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>BBQ</h2>
-            <p>
-              Pão, frango crispy coberto com molho barbecue caseiro, alface,
-              queijo cheddar derretido e cebola frita crocante.
-            </p>
-
-            <h3>R$25.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/23.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Choco milk</h2>
-            <p>Sorvete de chocolate belga.</p>
-            <h3>R$27.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/33.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Milk explosão</h2>
-            <p>Sorvete artesanal de baunilha e ovomaltine.</p>
-            <h3>R$21.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/34.jpg" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Morango</h2>
-            <p>Sorvete artesanal de morango com chantily.</p>
-            <h3>R$22.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
-
-        <div class="menu_card">
-          <div class="menu_image">
-            <img src="imagem/35.png" />
-          </div>
-
-          <div class="menu_info">
-            <h2>Milk vegano</h2>
-            <p>Linha vegana feita com leite de coco.</p>
-            <h3>R$33.00</h3>
-            <div class="menu_icon">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <a href="#" class="menu_btn">PEÇA AGORA</a>
-          </div>
-        </div>
+          echo '<input type="hidden" name="id_cardapio" class="field" value="'.$linha['id'].'">';
+          echo '<input type="hidden" name="vl_item" class="field" value="'.$linha['vl_item'].'">';
+          echo '<button type="submit" class="menu_btn">Pedir Agora</button>';
+  
+          echo '</form>';
+          echo '  </div>';
+          echo '</div>';
+        }
+        ?>
       </div>
     </div>
 
@@ -600,7 +384,7 @@
         <form action="#">
           <div class="input">
             <p>Nome</p>
-            <input type="text" placeholder="Seu nome" />
+            <input type="text" placeholder="Seu nome" name="nome_usuario" value="<?php echo $_SESSION["id_usuario"] ?>"/>
           </div>
 
           <div class="input">
@@ -762,5 +546,16 @@
         >
       </p>
     </footer>
+    <?php
+
+    if (isset($_POST['id_cardapio'])) {
+      $u->conectar("tasty_burger", "localhost", "root", "");
+      $idUsuario = addslashes($_SESSION["id_usuario"]);
+      $vlPedido = addslashes($_POST['vl_item']);
+      $idCardapio = addslashes($_POST['id_cardapio']);
+      $p->cadastrarPedido($idUsuario, $vlPedido, $idCardapio);
+      header("location: meus_pedidos.php");
+    }
+    ?>
   </body>
 </html>
