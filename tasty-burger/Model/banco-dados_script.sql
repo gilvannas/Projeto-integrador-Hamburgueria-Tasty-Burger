@@ -1,3 +1,5 @@
+/*Esse script deve ser rodado a parte no mysql para criar a tabela de uusários*/
+
 create database dados_login;
 
 use dados_login;

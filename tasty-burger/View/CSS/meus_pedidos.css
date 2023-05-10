@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Configuração do Nav*/
+
+section nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  left: 0;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+section nav .logo img {
+  width: 100px;
+  cursor: pointer;
+  margin: 7px 0;
+}
+
+section nav ul {
+  list-style: none;
+}
+
+section nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+section nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 17px;
+  transition: 0.1s;
+}
+
+section nav ul li a::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background: #dc143c;
+  display: block;
+  transition: 0.2s linear;
+}
+
+section nav ul li a:hover::after {
+  width: 100%;
+}
+
+section nav ul li a:hover {
+  color: #dc143c;
+}
+
+section nav .login a {
+  color: #000;
+  text-decoration: none;
+  border: 2px solid #dc143c;
+  border-radius: 20px;
+  padding: 7px 20px;
+  transition: 0.3s;
+}
+
+section nav .login a:hover {
+  background: #dc143c;
+  color: #fff;
+}
+
+/* Configuração Meus Pedidos */
+
+.meus_pedidos {
+  width: 700px;
+  height: 1500px;
+  background-image: url(../imagens/login_bg.png);
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 135%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+}
+
+.meus_pedidos h1 {
+  font-size: 2em;
+  background-color: #f7f5f5;
+  text-align: center;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.meus_pedidos h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.7em;
+  color: #dc143c;
+}
+
+.meus_pedidos p {
+  font-size: 1.3em;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 15px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc143c;
+  border-radius: 15px;
+}
