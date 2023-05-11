@@ -15,6 +15,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+  <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -541,8 +542,7 @@
       <p class="end">
         Desenvolvido pelo Grupo 08 da disciplina:
         <span
-          >Desenvolvimento de Sistemas Orientado a Dispositivos Móveis e
-          Baseados na Web. 2023</span
+          > Análise de soluções integradas para organizações. 2023</span
         >
       </p>
     </footer>

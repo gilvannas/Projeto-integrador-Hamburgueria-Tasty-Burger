@@ -12,6 +12,7 @@ html {
 section {
   width: 100%;
   height: 100vh;
+  background-image: url(../imagem/bg1.jpg);
 }
 
 /* Configuração do Nav*/
@@ -66,6 +67,20 @@ section nav ul li a:hover::after {
 
 section nav ul li a:hover {
   color: #dc143c;
+}
+
+section nav .login a {
+  color: #000;
+  text-decoration: none;
+  border: 2px solid #dc143c;
+  border-radius: 20px;
+  padding: 7px 20px;
+  transition: 0.3s;
+}
+
+section nav .login a:hover {
+  background: #dc143c;
+  color: #fff;
 }
 
 section nav .login a {

@@ -38,11 +38,15 @@ $u = new Usuario;
           <!-- <li><a href="#pedido">Pedido</a></li> -->
         </ul>
 
+        <div class="login">
+          <a class="btn btn-primary btn-lg" href="sair.php" role="button">Sair</a>
+        </div>
+
       </nav>
 
     </section>
 
-    <section id="MeusPedidos" >
+    <section id="MeusPedidos"  class="meuspedidosBack">
 
     <div>
        
