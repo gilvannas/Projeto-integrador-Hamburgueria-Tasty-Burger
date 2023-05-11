@@ -15,11 +15,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+  <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hamburgueria Tasty Burger</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="View/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -32,7 +33,7 @@
     <section id="Home">
       <nav>
         <div class="logo">
-          <img src="imagem/logo_tasty.png" />
+          <img src="View/imagem/logo_tasty.png" />
         </div>
 
         <ul>
@@ -46,7 +47,7 @@
         </ul>
 
         <div class="login">
-          Olá <?php echo $_SESSION["nome"]?> seja bem vindo
+          Olá <?php echo $_SESSION["nome"]?>, seja bem vindo(a)!
           <a class="btn btn-primary btn-lg" href="sair.php" role="button">Sair</a>
         </div>
       </nav>
@@ -60,7 +61,7 @@
         </div>
 
         <div class="main_image">
-          <img src="imagem/img_main.png" />
+          <img src="View/imagem/img_main.png" />
         </div>
       </div>
 
@@ -100,7 +101,7 @@
       <div id="sobre">
         <div class="about_main">
           <div class="image">
-            <img src="imagem/buger.jpg" />
+            <img src="View/imagem/buger.jpg" />
           </div>
 
           <div class="about_text">
@@ -183,7 +184,7 @@
 
       <div class="gallary_image_box">
         <div class="gallary_image">
-          <img src="imagem/21.jpg" />
+          <img src="View/imagem/21.jpg" />
 
           <h3>Os clássicos</h3>
           <p>
@@ -194,7 +195,7 @@
         </div>
 
         <div class="gallary_image">
-          <img src="imagem/27.jpg" />
+          <img src="View/imagem/27.jpg" />
 
           <h3>Os veganos</h3>
           <p>
@@ -205,7 +206,7 @@
         </div>
 
         <div class="gallary_image">
-          <img src="imagem/buger.jpg" />
+          <img src="View/imagem/buger.jpg" />
 
           <h3>Os lanches de frango</h3>
           <p>
@@ -216,7 +217,7 @@
         </div>
 
         <div class="gallary_image">
-          <img src="imagem/fries.png" />
+          <img src="View/imagem/fries.png" />
 
           <h3>Acompanhamentos</h3>
           <p>Os mais diversos tipos de acompanhamentos para sua refeição.</p>
@@ -224,7 +225,7 @@
         </div>
 
         <div class="gallary_image">
-          <img src="imagem/37.png" />
+          <img src="View/imagem/37.png" />
 
           <h3>Os milkshakes mais pedidos</h3>
           <p>
@@ -235,7 +236,7 @@
         </div>
 
         <div class="gallary_image">
-          <img src="imagem/36.png" />
+          <img src="View/imagem/36.png" />
 
           <h3>Sobremesas</h3>
           <p>
@@ -255,7 +256,7 @@
       <div class="review_box">
         <div class="review_card">
           <div class="review_profile">
-            <img src="imagem/foto1.png" />
+            <img src="View/imagem/foto1.png" />
           </div>
 
           <div class="review_text">
@@ -284,7 +285,7 @@
 
         <div class="review_card">
           <div class="review_profile">
-            <img src="imagem/foto2.png" />
+            <img src="View/imagem/foto2.png" />
           </div>
 
           <div class="review_text">
@@ -312,7 +313,7 @@
 
         <div class="review_card">
           <div class="review_profile">
-            <img src="imagem/foto3.png" />
+            <img src="View/imagem/foto3.png" />
           </div>
 
           <div class="review_text">
@@ -341,7 +342,7 @@
 
         <div class="review_card">
           <div class="review_profile">
-            <img src="imagem/foto4.png" />
+            <img src="View/imagem/foto4.png" />
           </div>
 
           <div class="review_text">
@@ -378,13 +379,13 @@
 
       <div class="order_main">
         <div class="order_image">
-          <img src="imagem/pedido.jpg" />
+          <img src="View/imagem/pedido.jpg" />
         </div>
 
         <form action="#">
           <div class="input">
             <p>Nome</p>
-            <input type="text" placeholder="Seu nome" name="nome_usuario" value="<?php echo $_SESSION["id_usuario"] ?>"/>
+            <input type="text" placeholder="Seu nome" name="nome_usuario" value="<?php echo $_SESSION["nome"] ?>"/>
           </div>
 
           <div class="input">
@@ -424,7 +425,7 @@
 
       <div class="team_box">
         <div class="profile">
-          <img src="imagem/foto5.png" />
+          <img src="View/imagem/foto5.png" />
 
           <div class="info">
             <h2 class="name">Carlos Daniel</h2>
@@ -442,7 +443,7 @@
         </div>
 
         <div class="profile">
-          <img src="imagem/foto6.png" />
+          <img src="View/imagem/foto6.png" />
 
           <div class="info">
             <h2 class="name">Ana Maria</h2>
@@ -460,7 +461,7 @@
         </div>
 
         <div class="profile">
-          <img src="imagem/foto7.png" />
+          <img src="View/imagem/foto7.png" />
 
           <div class="info">
             <h2 class="name">Patrícia Vieira</h2>
@@ -478,7 +479,7 @@
         </div>
 
         <div class="profile">
-          <img src="imagem/foto8.png" />
+          <img src="View/imagem/foto8.png" />
 
           <div class="info">
             <h2 class="name">Thiago Barbosa</h2>
@@ -509,12 +510,12 @@
 
         <div class="footer_tag">
           <h2>Acesso rápido</h2>
-          <p>Home</p>
-          <p>Sobre</p>
-          <p>Cardápio</p>
-          <p>Galeria</p>
-          <p>Avaliações</p>
-          <p>Pedido</p>
+          <p><a href="index.php">Home</a></p>
+          <p><a href="#sobre">Sobre</a></p>
+          <p><a href="#cardapio">Cardápio</a></p>
+          <p><a href="#galeria">Galeria</a></p>
+          <p><a href="#avaliacoes">Avaliações</a></p>
+          <p><a href="meus_pedidos.php">Meus Pedidos</a></p>
         </div>
 
         <div class="footer_tag">
