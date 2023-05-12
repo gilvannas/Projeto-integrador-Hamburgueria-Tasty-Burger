@@ -18,4 +18,4 @@
   <h5>📌MIQUELANE PEREIRA MELO</h5>
     
 </br>
-<h1 align="center">Descrição sobre o projeto</h1>
+<h2 align="center">Descrição sobre o projeto</h2>
